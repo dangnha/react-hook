@@ -1,31 +1,25 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
-const App = () => {
-  let name = "Dang Nha";
-  let status = " is learning react hook";
-  let link =
-    "https://www.youtube.com/watch?v=Y9gTouaZJ5s&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E&index=11";
-  let obj = { name: "kufu", status: " is learning print obj" };
+function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello world!, {name} + {status}
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
-          href={link}
+          href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          This current video
+          Learn React
         </a>
-        <p>{JSON.stringify(obj)}</p>
       </header>
     </div>
   );
-};
+}
 
 export default App;
