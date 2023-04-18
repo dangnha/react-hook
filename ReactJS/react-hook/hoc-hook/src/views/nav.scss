@@ -12,25 +12,24 @@ ul {
   background-color: lightgray;
   position: fixed;
   top: 0;
+  li {
+    float: left;
+    a {
+      display: block;
+      color: blue;
+      font-size: 20px;
+      text-align: center;
+      padding: 10px 20px;
+      text-decoration: none;
+      &:hover {
+        background-color: orange;
+        color: white;
+      }
+    }
+  }
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: blue;
-  font-size: 20px;
-  text-align: center;
-  padding: 10px 20px;
-  text-decoration: none;
-}
 .active {
   background-color: gray;
-  color: white;
-}
-li a:hover {
-  background-color: orange;
   color: white;
 }
