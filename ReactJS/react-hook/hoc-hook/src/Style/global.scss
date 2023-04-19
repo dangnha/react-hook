@@ -12,9 +12,18 @@
 }
 
 button {
-  @include button(10px);
+  @include button(7px);
+  margin-left: 10px;
 }
 input {
   padding: 5px 5px;
   margin: 20px 0;
+}
+
+.Todo-container {
+  .Todo-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
