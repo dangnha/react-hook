@@ -11,19 +11,55 @@
   }
 }
 
+body {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #282c34;
+}
+
 button {
   @include button(7px);
   margin-left: 10px;
 }
 input {
-  padding: 5px 5px;
+  padding: 7px 5px;
+  border-radius: 5px;
   margin: 20px 0;
+  width: 20vw;
 }
 
-.Todo-container {
-  .Todo-child {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.Todo-App {
+  position: sticky;
+  top: 100px;
+  .Todo-container {
+    .Todo-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      .Todo-item {
+        border: 3px solid #fff;
+        flex-basis: 30%;
+        margin-top: 20px;
+        .Todo-name {
+          margin: 25px 0;
+        }
+        .Todo-button {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          &-child {
+            &:hover {
+              cursor: pointer;
+            }
+            @include button(6px);
+            flex-basis: 20%;
+            margin: 10px 0;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
   }
 }

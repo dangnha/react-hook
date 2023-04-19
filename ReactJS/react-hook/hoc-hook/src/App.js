@@ -7,13 +7,12 @@ import TodoApp from "./views/TodoApp.js";
 
 const App = () => {
   let link =
-    "https://www.youtube.com/watch?v=uZbI_LXo46w&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E&index=16";
+    "https://www.youtube.com/watch?v=lTFPU8mA8kI&list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E&index=22";
 
   return (
     <div className="App">
       <Nav></Nav>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <TodoApp></TodoApp>
         <a
           className="App-link"
