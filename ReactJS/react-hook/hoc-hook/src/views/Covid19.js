@@ -10,28 +10,30 @@ import moment from "moment";
 
 const Covid19 = () => {
   const [dataCovid, setDataCovid] = useState([]);
+  const [loading, setLoading] = useState(false);
   // Date
   var currentDate = new Date();
   var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 30));
 
   beforeDate = moment(beforeDate).format("2021-MM-DD");
-  console.log(beforeDate);
 
   currentDate = moment(currentDate).format("2021-MM-DD");
-  console.log(currentDate);
 
   useEffect(async () => {
-    let res = await axios.get(
-      `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`
-    );
-    let data = res && res.data ? res.data : [];
-    if (data && data.length > 0) {
-      data.map((item) => {
-        item.Date = moment(item.Date).format(`DD/MM/YYYY`);
-        return item;
-      });
-    }
-    setDataCovid(data);
+    setTimeout(async () => {
+      let res = await axios.get(
+        `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`
+      );
+      let data = res && res.data ? res.data : [];
+      if (data && data.length > 0) {
+        data.map((item) => {
+          item.Date = moment(item.Date).format(`DD/MM/YYYY`);
+          return item;
+        });
+      }
+      setDataCovid(data);
+      setLoading(true);
+    }, 2000);
   }, []);
 
   return (
@@ -47,7 +49,8 @@ const Covid19 = () => {
           </tr>
         </thead>
         <tbody>
-          {dataCovid &&
+          {loading === true &&
+            dataCovid &&
             dataCovid.length > 0 &&
             [...dataCovid].reverse().map((item) => {
               return (
@@ -60,6 +63,11 @@ const Covid19 = () => {
                 </tr>
               );
             })}
+          {loading === false && (
+            <tr className="load-data">
+              <td colSpan="5">Loading...</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
