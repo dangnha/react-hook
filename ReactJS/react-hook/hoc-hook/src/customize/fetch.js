@@ -31,7 +31,7 @@ const useFetch = (url) => {
       setMessage(e.message);
       console.log(e.message);
     }
-  }, []);
+  }, [url]);
 
   return {
     dataCovid,

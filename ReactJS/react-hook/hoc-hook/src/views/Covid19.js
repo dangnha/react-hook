@@ -10,7 +10,7 @@ import moment from "moment";
 const Covid19 = () => {
   // Date
   var currentDate = new Date();
-  var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 30));
+  var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 31));
 
   beforeDate = moment(beforeDate).format("2021-MM-DD");
   currentDate = moment(currentDate).format("2021-MM-DD");
