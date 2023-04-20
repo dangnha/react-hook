@@ -10,13 +10,13 @@ const Nav = () => {
           </a>
         </li>
         <li>
-          <a href="#">Java</a>
+          <a href="#">To do List</a>
         </li>
         <li>
-          <a href="#">HTML</a>
+          <a href="#">Covid 19 tracker</a>
         </li>
         <li>
-          <a href="#">CSS</a>
+          <a href="#">Search Youtube</a>
         </li>
       </ul>
     </div>
