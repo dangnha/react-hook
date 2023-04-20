@@ -1,6 +1,5 @@
 import "../Style/global.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useFetch from "../customize/fetch.js";
 import moment from "moment";
 
 /*
@@ -9,43 +8,20 @@ import moment from "moment";
 */
 
 const Covid19 = () => {
-  const [dataCovid, setDataCovid] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isErr, setIsErr] = useState(false);
-  const [message, setMessage] = useState("");
   // Date
   var currentDate = new Date();
   var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 30));
 
   beforeDate = moment(beforeDate).format("2021-MM-DD");
-
   currentDate = moment(currentDate).format("2021-MM-DD");
 
-  useEffect(async () => {
-    try {
-      let res = await axios.get(
-        `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`
-      );
-      let data = res && res.data ? res.data : [];
-      if (data && data.length > 0) {
-        data.map((item) => {
-          item.Date = moment(item.Date).format(`DD/MM/YYYY`);
-          return item;
-        });
-      }
-      setDataCovid(data);
-      setLoading(true);
-      setIsErr(false);
-    } catch (e) {
-      setIsErr(true);
-      setLoading(true);
-      setMessage(e.message);
-      console.log(e.message);
-    }
-  }, []);
+  const url = `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`;
+
+  const { dataCovid, isLoading, isErr, message } = useFetch(url);
 
   return (
     <div className="CovidLoadBoard">
+      <h1>Covid tracking in Vietnam 2021</h1>
       <table>
         <thead>
           <tr>
@@ -57,7 +33,7 @@ const Covid19 = () => {
           </tr>
         </thead>
         <tbody>
-          {loading === true &&
+          {isLoading === true &&
             dataCovid &&
             dataCovid.length > 0 &&
             [...dataCovid].reverse().map((item) => {
@@ -71,7 +47,7 @@ const Covid19 = () => {
                 </tr>
               );
             })}
-          {loading === false && (
+          {isLoading === false && (
             <tr className="load-data">
               <td colSpan="5">Loading...</td>
             </tr>

@@ -12,9 +12,12 @@
 }
 
 body {
-  margin: 100px auto;
+  margin: 70px auto;
   width: 90vw;
   background-color: #282c34;
+  h1 {
+    padding-bottom: 30px;
+  }
   .CovidLoadBoard {
     width: 100%;
 
