@@ -15,6 +15,22 @@ body {
   width: 80%;
   margin: 0 auto;
   background-color: #282c34;
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #747171;
+  }
 }
 
 button {
