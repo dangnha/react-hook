@@ -11,6 +11,8 @@ import moment from "moment";
 const Covid19 = () => {
   const [dataCovid, setDataCovid] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isErr, setIsErr] = useState(false);
+  const [message, setMessage] = useState("");
   // Date
   var currentDate = new Date();
   var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 30));
@@ -20,7 +22,7 @@ const Covid19 = () => {
   currentDate = moment(currentDate).format("2021-MM-DD");
 
   useEffect(async () => {
-    setTimeout(async () => {
+    try {
       let res = await axios.get(
         `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`
       );
@@ -33,7 +35,13 @@ const Covid19 = () => {
       }
       setDataCovid(data);
       setLoading(true);
-    }, 2000);
+      setIsErr(false);
+    } catch (e) {
+      setIsErr(true);
+      setLoading(true);
+      setMessage(e.message);
+      console.log(e.message);
+    }
   }, []);
 
   return (
@@ -66,6 +74,11 @@ const Covid19 = () => {
           {loading === false && (
             <tr className="load-data">
               <td colSpan="5">Loading...</td>
+            </tr>
+          )}
+          {isErr === true && (
+            <tr className="load-data">
+              <td colSpan="5">{message}</td>
             </tr>
           )}
         </tbody>
