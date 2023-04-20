@@ -10,10 +10,19 @@ import moment from "moment";
 
 const Covid19 = () => {
   const [dataCovid, setDataCovid] = useState([]);
+  // Date
+  var currentDate = new Date();
+  var beforeDate = new Date(new Date().setDate(currentDate.getDate() - 30));
+
+  beforeDate = moment(beforeDate).format("2021-MM-DD");
+  console.log(beforeDate);
+
+  currentDate = moment(currentDate).format("2021-MM-DD");
+  console.log(currentDate);
 
   useEffect(async () => {
     let res = await axios.get(
-      "https://api.covid19api.com/country/vietnam?from=2021-09-20T00:00:00Z&to=2021-10-20T00:00:00Z"
+      `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`
     );
     let data = res && res.data ? res.data : [];
     if (data && data.length > 0) {
@@ -22,9 +31,7 @@ const Covid19 = () => {
         return item;
       });
     }
-    console.log(data);
     setDataCovid(data);
-    console.log(dataCovid);
   }, []);
 
   return (
@@ -42,7 +49,7 @@ const Covid19 = () => {
         <tbody>
           {dataCovid &&
             dataCovid.length > 0 &&
-            dataCovid.map((item) => {
+            [...dataCovid].reverse().map((item) => {
               return (
                 <tr key={item.ID}>
                   <td>{item.Date}</td>

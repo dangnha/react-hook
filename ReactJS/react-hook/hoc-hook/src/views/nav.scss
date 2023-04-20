@@ -16,13 +16,13 @@ ul {
     float: left;
     a {
       display: block;
-      color: blue;
+      color: black;
       font-size: 20px;
       text-align: center;
       padding: 10px 20px;
       text-decoration: none;
       &:hover {
-        background-color: orange;
+        background-color: green;
         color: white;
       }
     }
