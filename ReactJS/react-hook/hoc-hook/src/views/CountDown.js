@@ -4,7 +4,7 @@ import "../Style/global.scss";
 
 class CountDown extends React.Component {
   state = {
-    count: 5,
+    count: 50,
   };
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class CountDown extends React.Component {
     if (this.state.count === 0 && prevState.count !== this.state.count) {
       if (this.timer) {
         clearInterval(this.timer);
-        alert("Times up!");
+        // alert("Times up!");
       }
     }
   }
@@ -34,11 +34,11 @@ class CountDown extends React.Component {
 }
 
 const HookCountDown = () => {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(60);
 
   useEffect(() => {
     if (count === 0) {
-      alert("Times up!");
+      // alert("Times up!");
       return;
     }
 

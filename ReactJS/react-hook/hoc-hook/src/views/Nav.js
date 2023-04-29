@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import "./nav.scss";
 
 const Nav = () => {
@@ -6,16 +7,24 @@ const Nav = () => {
       <ul>
         <li>
           {/* className="active" */}
-          <a href="#home">Home</a>
+          <NavLink activeClassName="active" to="/home">
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="#">To do List</a>
+          <NavLink activeClassName="active" to="/todolist">
+            To do List
+          </NavLink>
         </li>
         <li>
-          <a href="#">Covid 19 tracker</a>
+          <NavLink activeClassName="active" to="/covid19">
+            Covid 19 tracker
+          </NavLink>
         </li>
         <li>
-          <a href="#">Search Youtube</a>
+          <NavLink activeClassName="active" to="/youtube">
+            Search Youtube
+          </NavLink>
         </li>
       </ul>
     </div>
