@@ -1,11 +1,13 @@
 import "./form.scss";
 import { useState } from "react";
+import axios from "axios";
 
-const AddNew = () => {
+const AddNew = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const handleSubmitButton = (e) => {
+  const handleSubmitButton = async (e) => {
+    e.preventDefault();
     if (!title && !content) {
       alert("Please enter a title and content");
       return;
@@ -16,16 +18,25 @@ const AddNew = () => {
       alert("Please enter a content");
       return;
     }
-    const newBlog = {
+    let data = {
+      userId: 1,
       title: title,
       body: content,
     };
-    console.log(newBlog);
-    e.preventDefault();
+
+    let res = await axios.post(
+      `https://jsonplaceholder.typicode.com/posts`,
+      data
+    );
+
+    if (res && res.data) {
+      let newBlog = res.data;
+      props.handleAddNew(newBlog);
+    }
   };
+
   return (
     <div>
-      <h1>Add new blog</h1>
       <form className="form-add-blog" onSubmit={handleSubmitButton}>
         <div className="form-title">
           <label htmlFor="title">Blog title:</label>
@@ -37,8 +48,8 @@ const AddNew = () => {
         </div>
         <label htmlFor="body">Blog body:</label>
         <textarea
-          cols="70"
-          rows="10"
+          cols="40"
+          rows="5"
           type="text"
           placeholder="Write your blog's content"
           onChange={(event) => setContent(event.target.value)}

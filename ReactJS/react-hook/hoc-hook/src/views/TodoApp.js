@@ -39,6 +39,7 @@ const TodoApp = () => {
   return (
     <div className="Todo-App">
       <input
+        className="Todo-input"
         type="text"
         value={todo}
         onKeyPress={(e) => handleKeyPress(e)}
