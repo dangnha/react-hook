@@ -10,14 +10,22 @@ const Blog = () => {
     isErr,
     message,
   } = useFetch(url, false);
+
+  let newData = [];
+  dataBlog && dataBlog.length > 0
+    ? (newData = dataBlog.slice(0, 10))
+    : (newData = []);
   return (
     <div>
-      <h1>Blog</h1>
+      <div className="Blog-title">Blog</div>
+      <Link to="/add">
+        <button className="btn-add">+ Add New</button>
+      </Link>
       <div className="Blog-items">
         {isLoading === true &&
           dataBlog &&
           dataBlog.length > 0 &&
-          dataBlog.map((item) => {
+          newData.map((item) => {
             return (
               <div key={item.id} className="Blog-items-child">
                 <div className="Blog-name">

@@ -6,6 +6,7 @@ import Home from "./views/Home.js";
 import Covid19 from "./views/Covid19.js";
 import Blog from "./views/Blog.js";
 import SearchYoutube from "./views/SearchYoutube.js";
+import AddNew from "./views/AddNew.js";
 import BlogDetail from "./views/BlogDetail.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -27,6 +28,9 @@ const App = () => {
             </Route>
             <Route path="/blogs" exact>
               <Blog />
+            </Route>
+            <Route path="/add" exact>
+              <AddNew />
             </Route>
             <Route path={`/blogs/:id`} exact>
               <BlogDetail />
