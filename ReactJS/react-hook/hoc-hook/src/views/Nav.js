@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./nav.scss";
 
 const Nav = () => {
@@ -19,6 +19,11 @@ const Nav = () => {
         <li>
           <NavLink activeClassName="active" to="/covid19">
             Covid 19 tracker
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/blogs">
+            Blog
           </NavLink>
         </li>
         <li>

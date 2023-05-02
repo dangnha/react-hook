@@ -17,7 +17,12 @@ const Covid19 = () => {
 
   const url = `https://api.covid19api.com/country/vietnam?from=${beforeDate}T00:00:00Z&to=${currentDate}T00:00:00Z`;
 
-  const { dataCovid, isLoading, isErr, message } = useFetch(url);
+  const {
+    dataOutput: dataCovid,
+    isLoading,
+    isErr,
+    message,
+  } = useFetch(url, true);
 
   return (
     <div className="CovidLoadBoard">

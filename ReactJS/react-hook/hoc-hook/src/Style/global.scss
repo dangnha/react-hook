@@ -6,7 +6,7 @@
   border-radius: 5px;
   font-size: 14px;
   &:hover {
-    background-color: #61dafb;
+    background-color: green;
     color: white;
   }
 }
@@ -56,6 +56,48 @@ input {
   border-radius: 5px;
   margin: 20px 0;
   width: 20vw;
+}
+
+.Blog-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    width: 30%;
+    height: 40vh;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    &:hover {
+      cursor: pointer;
+      background-color: #61dafb;
+      color: white;
+    }
+    .Blog-name {
+      font-size: 25px;
+      font-weight: bold;
+      min-height: 12vh;
+    }
+    .Blog-description {
+      font-size: 18px;
+      min-height: 15vh;
+    }
+    button {
+      @include button(10px);
+    }
+  }
 }
 
 .Todo-App {

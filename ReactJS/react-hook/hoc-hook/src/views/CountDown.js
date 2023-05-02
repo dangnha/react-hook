@@ -7,6 +7,12 @@ class CountDown extends React.Component {
     count: 50,
   };
 
+  componentWillUnmount() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+  }
+
   componentDidMount() {
     this.timer = setInterval(() => {
       this.setState({
@@ -45,6 +51,7 @@ const HookCountDown = () => {
     let timer = setTimeout(() => {
       setCount(count - 1);
     }, 1000);
+
     return () => {
       clearInterval(timer);
     };
