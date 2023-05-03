@@ -17,7 +17,7 @@ const App = () => {
         <Nav></Nav>
         <header className="App-header">
           <Switch>
-            <Route path="/" exact>
+            <Route path="/home" exact>
               <Home />
             </Route>
             <Route path="/todolist">
