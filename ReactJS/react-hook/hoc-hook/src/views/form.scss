@@ -1,0 +1,22 @@
+.form-add-blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 3px solid rgb(187, 179, 179);
+  padding: 35px;
+  font-size: 16px;
+  .form-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  button {
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,150 @@
+@mixin button($value) {
+  padding: $value;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 14px;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
+
+body {
+  margin: 70px auto;
+  width: 90vw;
+  background-color: #282c34;
+  h1 {
+    padding-bottom: 30px;
+    color: #fff;
+  }
+  .CovidLoadBoard {
+    width: 100%;
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .load-data {
+      td {
+        text-align: center;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: #747171;
+    }
+  }
+}
+
+button {
+  @include button(7px);
+  margin-left: 10px;
+}
+input {
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin: 20px 0;
+  width: 20vw;
+}
+
+.Blog-title {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.Blog-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    width: 30%;
+    height: 50vh;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+
+    .Blog-name {
+      font-size: 25px;
+      font-weight: bold;
+      min-height: 15vh;
+    }
+    .Blog-description {
+      font-size: 18px;
+      min-height: 15vh;
+    }
+    button {
+      @include button(10px);
+    }
+  }
+}
+.Blog-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-add {
+  margin-bottom: 20px;
+}
+
+.Todo-App {
+  .Todo-input {
+    font-size: 16px;
+  }
+  .Todo-container {
+    .Todo-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      .Todo-item {
+        border: 3px solid #fff;
+        flex-basis: 30%;
+        margin-top: 20px;
+        .Todo-name {
+          margin: 25px 0;
+        }
+        .Todo-button {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          &-child {
+            &:hover {
+              cursor: pointer;
+            }
+            @include button(6px);
+            flex-basis: 20%;
+            margin: 10px 0;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

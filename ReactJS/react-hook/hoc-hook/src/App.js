@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Nav from "./views/Nav.js";
+import "./Style/global.scss";
+import TodoApp from "./views/TodoApp.js";
+import Home from "./views/Home.js";
+import Covid19 from "./views/Covid19.js";
+import Blog from "./views/Blog.js";
+import SearchYoutube from "./views/SearchYoutube.js";
+import NotFound from "./views/NotFound.js";
+import BlogDetail from "./views/BlogDetail.js";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav></Nav>
+        <header className="App-header">
+          <Switch>
+            <Route path="/home" exact>
+              <Home />
+            </Route>
+            <Route path="/todolist">
+              <TodoApp />
+            </Route>
+            <Route path="/covid19">
+              <Covid19 />
+            </Route>
+            <Route path="/blogs" exact>
+              <Blog />
+            </Route>
+            <Route path={`/blogs/:id`} exact>
+              <BlogDetail />
+            </Route>
+            <Route path="/youtube">
+              <SearchYoutube />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
