@@ -7,7 +7,7 @@ const Nav = () => {
       <ul>
         <li>
           {/* className="active" */}
-          <NavLink activeClassName="active" to="/home">
+          <NavLink activeClassName="active" to="/">
             Home
           </NavLink>
         </li>

@@ -6,6 +6,7 @@ import Home from "./views/Home.js";
 import Covid19 from "./views/Covid19.js";
 import Blog from "./views/Blog.js";
 import SearchYoutube from "./views/SearchYoutube.js";
+import NotFound from "./views/NotFound.js";
 import BlogDetail from "./views/BlogDetail.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const App = () => {
         <Nav></Nav>
         <header className="App-header">
           <Switch>
-            <Route path="/home" exact>
+            <Route path="/" exact>
               <Home />
             </Route>
             <Route path="/todolist">
@@ -33,6 +34,9 @@ const App = () => {
             </Route>
             <Route path="/youtube">
               <SearchYoutube />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </header>
